@@ -1,8 +1,9 @@
-gci *.ps1 -path export,private -Recurse | %{
+gci *.ps1 -path "$PSScriptRoot\Export", "$PSScriptRoot\Private" -Recurse | %{
+
     . $_.FullName
 }
 
-gci *.ps1 -path export -Recurse | %{
+gci *.ps1 -path "$PSScriptRoot\Export" -Recurse | %{
+
     Export-ModuleMember $_.BaseName
 }
-
